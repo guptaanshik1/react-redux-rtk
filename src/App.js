@@ -1,26 +1,23 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import Movie from "./components/hoc/movie";
+import ComA from "./components/comA";
+import Home from "./components/home";
+import AddEdit from "./components/addEdit";
+import Edit from "./components/edit";
+import { Switch, Route } from 'react-router-dom'
 
-function App() {
+const App = () => {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Switch>
+        <Route path="/" exact component={Home} />
+        <Route path="/add" component={AddEdit} />
+        <Route path="/edit/:id" component={Edit} />
+      </Switch>
+      {/* <Movie id={1} />
+      <ComA /> */}
     </div>
   );
-}
+};
 
 export default App;
